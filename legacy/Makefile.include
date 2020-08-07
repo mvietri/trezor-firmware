@@ -92,6 +92,13 @@ LDFLAGS  += -L$(TOP_DIR)emulator
 LDLIBS   += -ltrezor -lemulator
 LIBDEPS  += $(TOP_DIR)/libtrezor.a $(TOP_DIR)emulator/libemulator.a
 
+ifdef PIZERO
+CFLAGS   += -DPIZERO=1
+LDFLAGS  += -L$(TOP_DIR)emulator/pizero
+LIBDEPS  += $(TOP_DIR)emulator/pizero/libpizero.a
+LDLIBS   += -lpizero -lbcm2835 -pthread
+endif
+
 CFLAGS   += $(shell pkg-config --cflags sdl2 SDL2_image)
 LDLIBS   += $(shell pkg-config --libs sdl2 SDL2_image)
 

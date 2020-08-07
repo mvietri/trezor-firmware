@@ -16,7 +16,7 @@ PYTHON ?= python
 
 %.pb.h: %.pb %.options
 	@printf "  NANOPB  $@\n"
-	$(Q)nanopb_generator $< \
+	$(Q)$(PYTHON) ../../vendor/nanopb/generator/nanopb_generator.py $< \
 		-L '#include "%s"' \
 		-T -D . \
 		-s "mangle_names:M_FLATTEN"

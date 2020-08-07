@@ -2,12 +2,16 @@ ifneq ($(EMULATOR),1)
 OBJS += startup.o
 endif
 
-OBJS += buttons.o
 OBJS += common.o
 OBJS += flash.o
 OBJS += layout.o
 OBJS += oled.o
 OBJS += rng.o
+
+ifndef PIZERO
+OBJS += buttons.o
+OBJS += udp.o
+endif
 
 ifneq ($(EMULATOR),1)
 OBJS += setup.o
@@ -21,7 +25,10 @@ ifneq ($(EMULATOR),1)
 OBJS += timer.o
 endif
 
+ifndef PIZERO
 OBJS += usb_standard.o
+endif
+
 OBJS += usb21_standard.o
 OBJS += webusb.o
 OBJS += winusb.o
