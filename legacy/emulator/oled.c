@@ -103,6 +103,9 @@ void oledInit(void) {
   texture =
       SDL_CreateTexture(renderer, SDL_PIXELFORMAT_ARGB8888,
                         SDL_TEXTUREACCESS_STREAMING, OLED_WIDTH, OLED_HEIGHT);
+#ifdef PIZERO
+  pizeroInit();	
+#endif
 
   oledClear();
   oledRefresh();
@@ -129,6 +132,9 @@ void oledRefresh(void) {
   SDL_UpdateTexture(texture, NULL, data, OLED_WIDTH * sizeof(uint32_t));
   SDL_RenderCopy(renderer, texture, NULL, &dstrect);
   SDL_RenderPresent(renderer);
+#ifdef PIZERO
+  pizeroRefresh(buffer);
+#endif
 
   /* Return it back */
   oledInvertDebugLink();
