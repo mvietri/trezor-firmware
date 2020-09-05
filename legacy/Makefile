@@ -26,7 +26,7 @@ OBJS += timer.o
 endif
 
 ifndef PIZERO
-OBJS += usb_standard.o	OBJS += usb_standard.o
+OBJS += usb_standard.o
 endif
 OBJS += usb21_standard.o
 OBJS += webusb.o
