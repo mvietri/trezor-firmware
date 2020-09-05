@@ -1,17 +1,13 @@
 ifneq ($(EMULATOR),1)
 OBJS += startup.o
-endif
- 
+endif 
+
+OBJS += buttons.o
 OBJS += common.o
 OBJS += flash.o
 OBJS += layout.o
 OBJS += oled.o
-OBJS += rng.o
-
-ifndef PIZERO
-OBJS += buttons.o
-OBJS += udp.o
-endif
+OBJS += rng.o 
 
 ifneq ($(EMULATOR),1)
 OBJS += setup.o
