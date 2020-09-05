@@ -1,13 +1,13 @@
 ifneq ($(EMULATOR),1)
 OBJS += startup.o
-endif 
+endif
 
 OBJS += buttons.o
 OBJS += common.o
 OBJS += flash.o
 OBJS += layout.o
 OBJS += oled.o
-OBJS += rng.o 
+OBJS += rng.o
 
 ifneq ($(EMULATOR),1)
 OBJS += setup.o
